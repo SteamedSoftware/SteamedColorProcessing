@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/SteamedColorProcessing/static/css/main.e6c13ad2.css",
+    "main.js": "/SteamedColorProcessing/static/js/main.a4965645.js",
+    "static/js/787.a821c0e6.chunk.js": "/SteamedColorProcessing/static/js/787.a821c0e6.chunk.js",
+    "index.html": "/SteamedColorProcessing/index.html",
+    "main.e6c13ad2.css.map": "/SteamedColorProcessing/static/css/main.e6c13ad2.css.map",
+    "main.a4965645.js.map": "/SteamedColorProcessing/static/js/main.a4965645.js.map",
+    "787.a821c0e6.chunk.js.map": "/SteamedColorProcessing/static/js/787.a821c0e6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.a4965645.js"
+  ]
+}
