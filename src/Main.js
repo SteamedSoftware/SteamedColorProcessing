@@ -15,7 +15,7 @@ function Main(){
         setAnchorElNav(null);
     };
     return(
-        <AppBar position="static" sx={{backgroundColor: "#d9a177"}}>
+        <AppBar position="static" sx={{backgroundColor: "#1E1E1E"}}>
             <Container maxWidth="xl" >
                 <Toolbar disableGutters >
                     <Typography
