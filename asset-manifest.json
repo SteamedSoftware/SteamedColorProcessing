@@ -1,15 +1,17 @@
 {
   "files": {
-    "main.css": "/SteamedColorProcessing/static/css/main.e6c13ad2.css",
-    "main.js": "/SteamedColorProcessing/static/js/main.a4965645.js",
+    "main.css": "/SteamedColorProcessing/static/css/main.3cbadba1.css",
+    "main.js": "/SteamedColorProcessing/static/js/main.2840e521.js",
     "static/js/787.a821c0e6.chunk.js": "/SteamedColorProcessing/static/js/787.a821c0e6.chunk.js",
+    "static/media/mcguire.jpg": "/SteamedColorProcessing/static/media/mcguire.31dc264ed2bf311fd83b.jpg",
+    "static/media/teichman.jpg": "/SteamedColorProcessing/static/media/teichman.b8f95166b0ee3bc56f98.jpg",
     "index.html": "/SteamedColorProcessing/index.html",
-    "main.e6c13ad2.css.map": "/SteamedColorProcessing/static/css/main.e6c13ad2.css.map",
-    "main.a4965645.js.map": "/SteamedColorProcessing/static/js/main.a4965645.js.map",
+    "main.3cbadba1.css.map": "/SteamedColorProcessing/static/css/main.3cbadba1.css.map",
+    "main.2840e521.js.map": "/SteamedColorProcessing/static/js/main.2840e521.js.map",
     "787.a821c0e6.chunk.js.map": "/SteamedColorProcessing/static/js/787.a821c0e6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e6c13ad2.css",
-    "static/js/main.a4965645.js"
+    "static/css/main.3cbadba1.css",
+    "static/js/main.2840e521.js"
   ]
 }
