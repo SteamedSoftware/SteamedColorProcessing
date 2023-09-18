@@ -1,33 +1,18 @@
 import React from 'react';
 import './index.css';
-import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material';
+import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Typography } from '@mui/material';
 
 export default function QuadCharts()
 {
     return(
         <div class="quadCharts">
             <QuadChart 
-                date="2023-9-12 - 2023-9-19"
-                progressList={[
-                    "Decided Team Roles",
-                    "Decided Task Tracking Method (Kanban)",
-                    "Determined Dev Tech stack",
-                    "Set up source control",
-                    "Set up basic website"
-                ]}
-                risksList={[
-                    "Putting time into python architecture, which might not work out"
-                ]}
-                plansList={[
-                    "Initial testing on python and C# performance"
-                ]}
-                needsList={[
-                    "Knowledge on github use",
-                    "Open source? Closed source?",
-                    "Licensing"
-                ]}
+                date={date1}
+                progressList={progressList1}
+                risksList={risksList1}
+                plansList={plansList1}
+                needsList={needsList1}
             />
         </div>
     );
@@ -104,3 +89,23 @@ function EntryList(props)
         <ul>{listItems}</ul>
     );
 }
+
+const date1 = "2023-9-12 - 2023-9-19";
+const progressList1 = [
+    "Decided Team Roles",
+    "Decided Task Tracking Method (Kanban)",
+    "Determined Dev Tech stack",
+    "Set up source control",
+    "Set up basic website"
+];
+const risksList1 = [
+    "Putting time into python architecture, which might not work out"
+];
+const plansList1 = [
+    "Initial testing on python and C# performance"
+];
+const needsList1 = [
+    "Knowledge on github use",
+    "Open source? Closed source?",
+    "Licensing"
+];

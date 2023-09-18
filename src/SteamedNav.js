@@ -7,7 +7,8 @@ import * as React from "react";
 function SteamedNav() {
     const pages = [
         {name: '4Ups', href: '/SteamedColorProcessing/4ups'},
-        {name: 'Time Report', href: '/SteamedColorProcessing/timeReport'}
+        {name: 'Time Report', href: '/SteamedColorProcessing/timeReport'},
+        {name: 'Team Members', href: '/SteamedColorProcessing/teamMembers'}
     ]
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
