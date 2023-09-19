@@ -1,6 +1,8 @@
 import {Card, CardContent, CardMedia, Container, Grid, Typography} from "@mui/material";
-import mcguire from './images/mcguire.jpg';
+import cronk from './images/cronk.jpg';
 import teichman from './images/teichman.jpg';
+import mcguire from './images/mcguire.jpg';
+import falardeau from './images/falardeau.jpg';
 import defaultImage from './images/defaultProfile.jpg';
 
 function TeamMembers() {
@@ -11,7 +13,7 @@ function TeamMembers() {
                 <Grid xs={12} md={4} display="flex" justifyContent="center" alignItems="center">
                     <ImageCard 
                         name="Ella Cronk"
-                        image={defaultImage}
+                        image={cronk}
                         description="Current Roles: Project Manager"/>
                 </Grid>
                 <Grid xs={12} md={4} display="flex" justifyContent="center" alignItems="center">
@@ -29,7 +31,7 @@ function TeamMembers() {
                 <Grid xs={12} md={4} display="flex" justifyContent="center" alignItems="center">
                     <ImageCard 
                         name="Dante Falardeau"
-                        image={defaultImage}
+                        image={falardeau}
                         description="Current Roles: Systems Architect"/>
                 </Grid>
                 <Grid xs={12} md={4} display="flex" justifyContent="center" alignItems="center">
