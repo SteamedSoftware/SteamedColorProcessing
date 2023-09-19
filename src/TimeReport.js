@@ -25,7 +25,7 @@ class TimeReport extends Component {
         super(props)
         let startDate = DateTime.now().startOf('week').minus(Duration.fromObject({days: 1})).toISODate()
         let endDate = DateTime.now().endOf('week').minus(Duration.fromObject({days: 1})).toISODate()
-        this.state = {users: null, activities: null, timesheets: null, startDate, endDate, timesheetRows: null, timesheetPageCount: null, timesheetPageSize: 10, timesheetPage: 1}
+        this.state = {users: null, activities: null, timesheets: null, startDate, endDate, timesheetRows: null, timesheetTotal: 0, timesheetPageSize: 10, timesheetPage: 1}
         this.timesheetColumns = [
             {field: 'member', headerName: 'Member', width: 150},
             {field: 'start', headerName: 'Start', type: 'datetime', valueFormatter: v => v.value.toLocaleString(DateTime.DATETIME_SHORT), width: 175},
@@ -61,8 +61,8 @@ class TimeReport extends Component {
         })
     }
 
-    loadTimesheets(start, end) {
-        let path = "timesheets?user=all&project=1&size=1000"
+    loadTimesheets(start, end, size=this.state.timesheetPageSize, page=this.state.timesheetPage) {
+        let path = "timesheets?user=all&project=1&size="+size+"&page="+page
         if (start !== "") {
             path += "&begin="+start+"T00:00:00"
         }
@@ -116,6 +116,9 @@ class TimeReport extends Component {
                     columns={this.timesheetColumns}
                     rows={this.state.timesheetRows}
                     pageSizeOptions={[10, 20, 50, 100]}
+                    paginationMode={"server"}
+                    rowCount={this.state.timesheetTotal}
+                    onPaginationModelChange={(p) => {this.setState({timesheetPage: p.page+1, timesheetPageSize: p.pageSize}); this.loadTimesheets(this.state.startDate, this.state.endDate, p.pageSize, p.page+1)}}
                     initialState={{
                         pagination: {
                             paginationModel: {
@@ -130,7 +133,6 @@ class TimeReport extends Component {
                     }}
                 />
             }
-
         </Container>
     }
 }
