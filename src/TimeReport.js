@@ -36,13 +36,13 @@ class TimeReport extends Component {
     }
 
     componentDidMount() {
-        this.loadUsers()
-        this.loadActivities()
-        this.loadTimesheets(this.state.startDate, this.state.endDate)
+        Promise.all([this.loadUsers(), this.loadActivities()]).then(() => {
+            this.loadTimesheets(this.state.startDate, this.state.endDate)
+        })
     }
 
     loadUsers() {
-        KimaiRequest("users").then(([json, headers]) => {
+        return KimaiRequest("users").then(([json, headers]) => {
             let users = {}
             json.forEach((user) => {
                 users[user.id] = user
@@ -52,7 +52,7 @@ class TimeReport extends Component {
     }
 
     loadActivities() {
-        KimaiRequest("activities").then(([json, headers]) => {
+        return KimaiRequest("activities").then(([json, headers]) => {
             let activities = {}
             json.forEach((activity) => {
                 activities[activity.id] = activity
@@ -69,7 +69,7 @@ class TimeReport extends Component {
         if (end !== "") {
             path += "&end="+end+"T23:59:59"
         }
-        KimaiRequest(path).then(([json, headers]) => {
+        return KimaiRequest(path).then(([json, headers]) => {
             let timesheetRows = null
             if (this.state.users && this.state.activities && json) {
                 timesheetRows = []
