@@ -4,12 +4,16 @@ import teichman from './images/teichman.jpg';
 import mcguire from './images/mcguire.jpg';
 import falardeau from './images/falardeau.jpg';
 import defaultImage from './images/defaultProfile.jpg';
+import logoNoBg from './images/logoNoBg.png';
 
 function TeamMembers() {
     return (
         <Container>
             <h1>Meet the Team</h1>
             <Grid container rowSpacing={2} columnSpacing={2}>
+                <Grid xs={12} display="flex" justifyContent="center" alignItems="center">
+                    <Logo src={logoNoBg}/>
+                </Grid>
                 <Grid xs={12} md={4} display="flex" justifyContent="center" alignItems="center">
                     <ImageCard 
                         name="Ella Cronk"
@@ -51,7 +55,7 @@ function ImageCard(props)
     return(
         <Card
             sx={{
-                maxWidth: 345,
+                width: 345,
                 backgroundColor: '#1E1E1E',
                 color: 'white',
                 margin: '20px'
@@ -71,5 +75,14 @@ function ImageCard(props)
                 </Typography>
             </CardContent>
         </Card>
+    );
+}
+
+function Logo(props)
+{
+    return(
+        <div>
+            <img src={props.src} alt="Steamed Software Logo" className="centerLogo"></img>
+        </div>
     );
 }

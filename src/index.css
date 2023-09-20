@@ -12,6 +12,13 @@ code {
     monospace;
 }
 
+.centerLogo{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 345;
+}
+
 .quadCharts{
   padding: 25px;
 }
