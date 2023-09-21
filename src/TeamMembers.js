@@ -3,7 +3,7 @@ import cronk from './images/cronk.jpg';
 import teichman from './images/teichman.jpg';
 import mcguire from './images/mcguire.jpg';
 import falardeau from './images/falardeau.jpg';
-import defaultImage from './images/defaultProfile.jpg';
+import gauvin from './images/gauvin.png';
 import logoNoBg from './images/logoNoBg.png';
 
 function TeamMembers() {
@@ -41,7 +41,7 @@ function TeamMembers() {
                 <Grid xs={12} md={4} display="flex" justifyContent="center" alignItems="center">
                     <ImageCard 
                         name="Eddie Gauvin"
-                        image={defaultImage}
+                        image={gauvin}
                         description="Current Roles: CIT Lead"/>
                 </Grid>
             </Grid>
