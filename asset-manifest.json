@@ -1,20 +1,21 @@
 {
   "files": {
     "main.css": "/SteamedColorProcessing/static/css/main.3aff651b.css",
-    "main.js": "/SteamedColorProcessing/static/js/main.7307d52e.js",
+    "main.js": "/SteamedColorProcessing/static/js/main.410ab79a.js",
     "static/js/787.a821c0e6.chunk.js": "/SteamedColorProcessing/static/js/787.a821c0e6.chunk.js",
     "static/media/mcguire.jpg": "/SteamedColorProcessing/static/media/mcguire.31dc264ed2bf311fd83b.jpg",
     "static/media/cronk.jpg": "/SteamedColorProcessing/static/media/cronk.ffdd7432b24980b33800.jpg",
     "static/media/teichman.jpg": "/SteamedColorProcessing/static/media/teichman.b8f95166b0ee3bc56f98.jpg",
+    "static/media/gauvin.png": "/SteamedColorProcessing/static/media/gauvin.e179c9995d006d302cfd.png",
     "static/media/falardeau.jpg": "/SteamedColorProcessing/static/media/falardeau.6e1bf81b27436732adec.jpg",
     "static/media/logoNoBg.png": "/SteamedColorProcessing/static/media/logoNoBg.cbc98714ccab9197c8a3.png",
     "index.html": "/SteamedColorProcessing/index.html",
     "main.3aff651b.css.map": "/SteamedColorProcessing/static/css/main.3aff651b.css.map",
-    "main.7307d52e.js.map": "/SteamedColorProcessing/static/js/main.7307d52e.js.map",
+    "main.410ab79a.js.map": "/SteamedColorProcessing/static/js/main.410ab79a.js.map",
     "787.a821c0e6.chunk.js.map": "/SteamedColorProcessing/static/js/787.a821c0e6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3aff651b.css",
-    "static/js/main.7307d52e.js"
+    "static/js/main.410ab79a.js"
   ]
 }
