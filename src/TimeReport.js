@@ -1,48 +1,23 @@
-import {Container, Input, InputLabel} from "@mui/material";
-import {DataGrid} from "@mui/x-data-grid"
+import {Box, CircularProgress, Container, Tab, Tabs} from "@mui/material";
 import {Component} from "react";
-import {DateTime, Duration} from "luxon";
+import KimaiRequest from "./KimaiRequest";
+import TimeReportRecords from "./TimeReportRecords";
+import TimeReportAggregate from "./TimeReportAggregate";
 
-function KimaiRequest(apiPath) {
-    return fetch("https://kimai.teichman.me/api/"+apiPath,
-        {
-            headers: {
-                "X-AUTH-USER": "kimaiapi@teichman.me",
-                "X-AUTH-TOKEN": "SeniorProject"
-            }
-        }
-    ).then((resp) => {
-        return resp.json().then((json) => {
-            return new Promise((resolve) => {
-                resolve([json, resp.headers])
-            })
-        })
-    })
-}
 
 class TimeReport extends Component {
     constructor(props) {
         super(props)
-        let startDate = DateTime.now().startOf('week').minus(Duration.fromObject({days: 1})).toISODate()
-        let endDate = DateTime.now().endOf('week').minus(Duration.fromObject({days: 1})).toISODate()
-        this.state = {users: null, activities: null, timesheets: null, startDate, endDate, timesheetRows: null, timesheetTotal: 0, timesheetPageSize: 10, timesheetPage: 1}
-        this.timesheetColumns = [
-            {field: 'member', headerName: 'Member', width: 150},
-            {field: 'start', headerName: 'Start', type: 'datetime', valueFormatter: v => v.value.toLocaleString(DateTime.DATETIME_SHORT), width: 175},
-            {field: 'end', headerName: 'End', type: 'datetime', valueFormatter: v => v.value.isLuxonDateTime ? v.value.toLocaleString(DateTime.DATETIME_SHORT) : "In Progress", width: 175},
-            {field: 'activity', headerName: 'Activity', width: 150},
-            {field: 'detail', headerName: 'Detail', width: 200}
-        ]
+        this.state = {users: null, activities: null, selectedTab: "0"}
     }
 
     componentDidMount() {
-        Promise.all([this.loadUsers(), this.loadActivities()]).then(() => {
-            this.loadTimesheets(this.state.startDate, this.state.endDate)
-        })
+        this.loadActivities()
+        this.loadUsers()
     }
 
     loadUsers() {
-        return KimaiRequest("users").then(([json, headers]) => {
+        return KimaiRequest("users").then(([json]) => {
             let users = {}
             json.forEach((user) => {
                 users[user.id] = user
@@ -52,7 +27,7 @@ class TimeReport extends Component {
     }
 
     loadActivities() {
-        return KimaiRequest("activities").then(([json, headers]) => {
+        return KimaiRequest("activities").then(([json]) => {
             let activities = {}
             json.forEach((activity) => {
                 activities[activity.id] = activity
@@ -61,78 +36,25 @@ class TimeReport extends Component {
         })
     }
 
-    loadTimesheets(start, end, size=this.state.timesheetPageSize, page=this.state.timesheetPage) {
-        let path = "timesheets?user=all&project=1&size="+size+"&page="+page
-        if (start !== "") {
-            path += "&begin="+start+"T00:00:00"
-        }
-        if (end !== "") {
-            path += "&end="+end+"T23:59:59"
-        }
-        return KimaiRequest(path).then(([json, headers]) => {
-            let timesheetRows = null
-            if (this.state.users && this.state.activities && json) {
-                timesheetRows = []
-                this.setState({timesheetPageCount: headers["x-total-count"]})
-                json.map((timesheet) => {
-                    timesheetRows.push({
-                        id: timesheet.id,
-                        member: this.state.users[timesheet.user].alias,
-                        start: DateTime.fromISO(timesheet.begin),
-                        end: timesheet.end ? DateTime.fromISO(timesheet.end) : "In Progress",
-                        activity: this.state.activities[timesheet.activity].name,
-                        detail: timesheet.description
-                    })
-                })
-            }
-            this.setState({timesheets: json, timesheetRows})
-        })
-    }
-
-
-    updateDateRange(newStart, newEnd) {
-        this.setState({timesheetRows: null})
-        this.setState({startDate: newStart, endDate: newEnd})
-        this.loadTimesheets(newStart, newEnd)
-    }
-
     render() {
         return <Container>
-            <h1>Time Report</h1>
-            <Container sx={{display: 'inline-flex', alignContent: 'flex-start'}}>
-                <div style={{marginInlineEnd: "2em"}}>
-                    <InputLabel>Start Date</InputLabel>
-                    <Input type={"date"} value={this.state.startDate} onChange={(e) => {this.updateDateRange(e.target.value, this.state.endDate)}}/>
-                </div>
-                <div>
-                    <InputLabel>End Date (incl.)</InputLabel>
-                    <Input type={"date"} value={this.state.endDate} onChange={(e) => {this.updateDateRange(this.state.startDate, e.target.value)}}/>
-                </div>
-            </Container>
-            <hr/>
-            <h2>Timesheet Data</h2>
-            {this.state.timesheetRows &&
-                <DataGrid
-                    columns={this.timesheetColumns}
-                    rows={this.state.timesheetRows}
-                    pageSizeOptions={[10, 20, 50, 100]}
-                    paginationMode={"server"}
-                    rowCount={this.state.timesheetTotal}
-                    onPaginationModelChange={(p) => {this.setState({timesheetPage: p.page+1, timesheetPageSize: p.pageSize}); this.loadTimesheets(this.state.startDate, this.state.endDate, p.pageSize, p.page+1)}}
-                    initialState={{
-                        pagination: {
-                            paginationModel: {
-                                pageSize: 10
-                            }
-                        },
-                        sorting: {
-                            sortModel: [
-                                {field: 'start', sort: 'desc'}
-                            ]
+            <Box sx={{width: '100%'}}>
+                <Box sx={{ borderBottom: 1, borderColor: 'divider', marginBottom: 2 }}>
+                    <Tabs value={this.state.selectedTab} onChange={(e, newValue) => {this.setState({selectedTab: newValue})}}>
+                        <Tab label={"Time Records"} value="0"/>
+                        <Tab label={"Time Aggregates"} value="1"/>
+                    </Tabs>
+                </Box>
+                {(this.state.users && this.state.activities) ?
+                    <>
+                        {this.state.selectedTab === "0" &&
+                            <TimeReportRecords users={this.state.users} activities={this.state.activities}/>
                         }
-                    }}
-                />
-            }
+                        {this.state.selectedTab === "1" &&
+                            <TimeReportAggregate users={this.state.users} activities={this.state.activities}/>
+                        }
+                    </> : <div><center><CircularProgress/></center></div>}
+            </Box>
         </Container>
     }
 }
