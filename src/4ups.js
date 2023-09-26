@@ -94,6 +94,30 @@ function EntryList(props)
 
 const quadChartData = [
     {
+        date: "2023-09-26 - 2023-10-03",
+        progressList: [
+            "Did some testing with LUTs using Pillow",
+            "Did testing with image refresh and network speed"
+        ],
+        risksList: [
+            "Difficult to obtain licensing for new UI frameworks",
+            "UI frameworks prove insufficient",
+            "Tetrahedral interpolation proves difficult"
+
+        ],
+        plansList: [
+            "Tetrahedral interpolation testing",
+            "Test tech stacks that move away from web frameworks",
+            "Spikes for various UI frameworks (QT, PyQT, ActiveQT)"
+
+        ],
+        needsList: [
+            "Licensing info from ARRI",
+            "ARRI assist with purchasing licenses?"
+
+        ]
+    },
+    {
         date: "2023-09-19 - 2023-09-26",
         progressList: [
             "Initial Domain Model completed",
