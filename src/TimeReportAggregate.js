@@ -1,13 +1,13 @@
-import {Container} from "@mui/material";
+import {Button, Container, Input, InputLabel} from "@mui/material";
 import {DataGrid} from "@mui/x-data-grid"
 import {Component} from "react";
-import {Duration} from "luxon";
+import {DateTime, Duration} from "luxon";
 import KimaiRequest from "./KimaiRequest";
 
 class TimeReportAggregate extends Component {
     constructor(props) {
         super(props)
-        this.state = {aggRows: [{id: 0}, {id: 1}, {id: 2}, {id: 3}, {id: 4}, {id: 5}], aggCols: null, loading: true}
+        this.state = {aggRows: [{id: 0}, {id: 1}, {id: 2}, {id: 3}, {id: 4}, {id: 5}], aggCols: null, loading: true, startDate: "", endDate: ""}
     }
 
     componentDidMount() {
@@ -17,17 +17,17 @@ class TimeReportAggregate extends Component {
         })
         cols.push({field: "Total", headerName: "Total", width: 200})
         this.setState({aggCols: cols})
-        this.loadAggregate()
+        this.loadAggregate("", "")
     }
 
-    loadAggregate() {
+    loadAggregate(start, end) {
         let path = "timesheet_sums?project=1"
-        // if (start !== "") {
-        //     path += "&begin="+start+"T00:00:00"
-        // }
-        // if (end !== "") {
-        //     path += "&end="+end+"T23:59:59"
-        // }
+        if (start !== "") {
+            path += "&begin="+start+"T00:00:00"
+        }
+        if (end !== "") {
+            path += "&end="+end+"T23:59:59"
+        }
         KimaiRequest(path).then(([json]) => {
             let rawData = json.data
             let users = this.props.users
@@ -99,8 +99,50 @@ class TimeReportAggregate extends Component {
         })
     }
 
+    updateDateRange(newStart, newEnd) {
+        this.setState({timesheetRows: this.defaultRows})
+        this.setState({startDate: newStart, endDate: newEnd})
+        this.loadAggregate(newStart, newEnd)
+    }
+
+    filterToThisWeek() {
+        let startDate = DateTime.now().startOf('week').minus(Duration.fromObject({days: 1})).toISODate()
+        let endDate = DateTime.now().endOf('week').minus(Duration.fromObject({days: 1})).toISODate()
+        this.updateDateRange(startDate, endDate)
+    }
+
+    filterToLastWeek() {
+        let startDate = DateTime.now().startOf('week').minus(Duration.fromObject({days: 8})).toISODate()
+        let endDate = DateTime.now().endOf('week').minus(Duration.fromObject({days: 8})).toISODate()
+        this.updateDateRange(startDate, endDate)
+    }
+
+    clearFilters() {
+        this.updateDateRange("", "")
+    }
+
     render() {
         return <Container>
+            <Container sx={{display: 'inline-flex', alignContent: 'flex-start'}}>
+                <div style={{marginInlineEnd: "2em"}}>
+                    <InputLabel>Start Date</InputLabel>
+                    <Input type={"date"} value={this.state.startDate} onChange={(e) => {this.updateDateRange(e.target.value, this.state.endDate)}}/>
+                </div>
+                <div style={{marginInlineEnd: "2em"}}>
+                    <InputLabel>End Date (incl.)</InputLabel>
+                    <Input type={"date"} value={this.state.endDate} onChange={(e) => {this.updateDateRange(this.state.startDate, e.target.value)}}/>
+                </div>
+                <div style={{marginInlineEnd: "2em"}}>
+                    <Button onClick={() => {this.filterToLastWeek()}}>Last Week</Button>
+                </div>
+                <div style={{marginInlineEnd: "2em"}}>
+                    <Button onClick={() => {this.filterToThisWeek()}}>This Week</Button>
+                </div>
+                <div>
+                    <Button onClick={() => {this.clearFilters()}}>All Time</Button>
+                </div>
+            </Container>
+            <hr/>
             {this.state.aggCols &&
                 <DataGrid
                     columns={this.state.aggCols}
