@@ -84,9 +84,13 @@ function QuadChart(props)
 function EntryList(props)
 {
     const entries = props.entries;
-    const listItems = entries.map((entry) =>
-        <li>{entry}</li>
-    );
+    const listItems = entries.map((entry) => {
+        if (typeof entry === 'string' || entry instanceof String) {
+            return <li>{entry}</li>
+        } else {
+            return <EntryList entries={entry}/>
+        }
+    });
     return(
         <ul>{listItems}</ul>
     );
@@ -98,10 +102,12 @@ const quadChartData = [
         progressList: [
             "Finished project documents",
             "Electron/Python application test",
-            "\tLinux",
-            "Windows",
-            "Intel Mac (WIP)",
-            "M1 Mac (TBD)"
+            [
+                "Linux Success",
+                "Windows Success",
+                "Intel Mac Success",
+                "M1 Mac TBD"
+            ]
         ],
         risksList: [
             "Under scope"
