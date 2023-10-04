@@ -94,6 +94,31 @@ function EntryList(props)
 
 const quadChartData = [
     {
+        date: "2023-10-03 - 2023-10-10",
+        progressList: [
+            "Finished project documents",
+            "Electron/Python application test",
+            "\tLinux",
+            "Windows",
+            "Intel Mac (WIP)",
+            "M1 Mac (TBD)"
+        ],
+        risksList: [
+            "Under scope"
+        ],
+        plansList: [
+            "Finish LUT interpolation",
+            "Test LUT manipulation performance",
+            "Initialize final project repository",
+            "Setup CI/CD"
+        ],
+        needsList: [
+            "More feature ideas",
+            "Mac lab access in Magic (good computer so compilation doesn’t take long?)",
+            "Example LUT manipulation tasks"
+        ]
+    },
+    {
         date: "2023-09-26 - 2023-10-03",
         progressList: [
             "Did some testing with LUTs using Pillow",
@@ -103,19 +128,16 @@ const quadChartData = [
             "Difficult to obtain licensing for new UI frameworks",
             "UI frameworks prove insufficient",
             "Tetrahedral interpolation proves difficult"
-
         ],
         plansList: [
             "Tetrahedral interpolation testing",
             "Test tech stacks that move away from web frameworks",
             "Spikes for various UI frameworks (QT, PyQT, ActiveQT)"
-
         ],
         needsList: [
             "Licensing info from ARRI",
             "ARRI assist with purchasing licenses?",
             "Release under (L)GPLv3 License?"
-
         ]
     },
     {
