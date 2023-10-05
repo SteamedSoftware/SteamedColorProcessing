@@ -1,21 +1,22 @@
 {
   "files": {
-    "main.css": "/SteamedColorProcessing/static/css/main.3aff651b.css",
-    "main.js": "/SteamedColorProcessing/static/js/main.782f895d.js",
+    "main.css": "/SteamedColorProcessing/static/css/main.59a6bbf2.css",
+    "main.js": "/SteamedColorProcessing/static/js/main.b310f8b7.js",
     "static/js/787.a821c0e6.chunk.js": "/SteamedColorProcessing/static/js/787.a821c0e6.chunk.js",
     "static/media/mcguire.jpg": "/SteamedColorProcessing/static/media/mcguire.31dc264ed2bf311fd83b.jpg",
     "static/media/cronk.jpg": "/SteamedColorProcessing/static/media/cronk.ffdd7432b24980b33800.jpg",
     "static/media/teichman.jpg": "/SteamedColorProcessing/static/media/teichman.b8f95166b0ee3bc56f98.jpg",
     "static/media/gauvin.png": "/SteamedColorProcessing/static/media/gauvin.e179c9995d006d302cfd.png",
     "static/media/falardeau.jpg": "/SteamedColorProcessing/static/media/falardeau.6e1bf81b27436732adec.jpg",
+    "static/media/domainModel.png": "/SteamedColorProcessing/static/media/domainModel.14ba20ac3a6d3407f6cc.png",
     "static/media/logoNoBg.png": "/SteamedColorProcessing/static/media/logoNoBg.cbc98714ccab9197c8a3.png",
     "index.html": "/SteamedColorProcessing/index.html",
-    "main.3aff651b.css.map": "/SteamedColorProcessing/static/css/main.3aff651b.css.map",
-    "main.782f895d.js.map": "/SteamedColorProcessing/static/js/main.782f895d.js.map",
+    "main.59a6bbf2.css.map": "/SteamedColorProcessing/static/css/main.59a6bbf2.css.map",
+    "main.b310f8b7.js.map": "/SteamedColorProcessing/static/js/main.b310f8b7.js.map",
     "787.a821c0e6.chunk.js.map": "/SteamedColorProcessing/static/js/787.a821c0e6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3aff651b.css",
-    "static/js/main.782f895d.js"
+    "static/css/main.59a6bbf2.css",
+    "static/js/main.b310f8b7.js"
   ]
 }
