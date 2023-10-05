@@ -8,7 +8,8 @@ function SteamedNav() {
     const pages = [
         {name: '4Ups', href: '/SteamedColorProcessing/4ups'},
         {name: 'Time Report', href: '/SteamedColorProcessing/timeReport'},
-        {name: 'Team Members', href: '/SteamedColorProcessing/teamMembers'}
+        {name: 'Team Members', href: '/SteamedColorProcessing/teamMembers'},
+        {name: 'Artifacts', href: '/SteamedColorProcessing/artifacts'}
     ]
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);

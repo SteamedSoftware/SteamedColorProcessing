@@ -19,6 +19,22 @@ code {
   width: 345;
 }
 
+.artifacts{
+  padding: 25px;
+}
+
+.artifact{
+  padding: 25px;
+}
+
+.artifactImage{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
+  border: 10px solid white;
+}
+
 .quadCharts{
   padding: 25px;
 }

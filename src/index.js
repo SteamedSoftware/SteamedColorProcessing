@@ -7,6 +7,7 @@ import {
     createBrowserRouter,
     RouterProvider, useRouteError
 } from "react-router-dom";
+import Artifacts from "./Artifacts";
 import TeamMembers from "./TeamMembers";
 import QuadCharts from "./4ups";
 import SteamedNav from "./SteamedNav";
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
                     {
                         path: "/SteamedColorProcessing/teamMembers",
                         element: <TeamMembers/>
+                    },
+                    {
+                        path: "/SteamedColorProcessing/artifacts",
+                        element: <Artifacts/>
                     }
                 ]
             }

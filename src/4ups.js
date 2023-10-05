@@ -142,8 +142,10 @@ const quadChartData = [
         ],
         needsList: [
             "Licensing info from ARRI",
-            "ARRI assist with purchasing licenses?",
-            "Release under (L)GPLv3 License?"
+            [
+                "ARRI assist with purchasing licenses?",
+                "Release under (L)GPLv3 License?"
+            ]
         ]
     },
     {
