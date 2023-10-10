@@ -3,11 +3,12 @@ import {DataGrid} from "@mui/x-data-grid"
 import {Component} from "react";
 import {DateTime, Duration} from "luxon";
 import KimaiRequest from "./KimaiRequest";
+import {ResponsiveRadialBar} from '@nivo/radial-bar'
 
 class TimeReportAggregate extends Component {
     constructor(props) {
         super(props)
-        this.state = {aggRows: [{id: 0}, {id: 1}, {id: 2}, {id: 3}, {id: 4}, {id: 5}], aggCols: null, loading: true, startDate: "", endDate: ""}
+        this.state = {aggRows: [{id: 0}, {id: 1}, {id: 2}, {id: 3}, {id: 4}, {id: 5}], aggCols: null, loading: true, startDate: "", endDate: "", radData: []}
     }
 
     componentDidMount() {
@@ -85,6 +86,7 @@ class TimeReportAggregate extends Component {
                 rows.push(row)
                 rowId++;
             })
+
             let row = {id: rowId, Member: "Team Total"}
             activityNames.forEach((activity) => {
                 let activityName = activity
@@ -96,6 +98,23 @@ class TimeReportAggregate extends Component {
             })
             rows.push(row)
             this.setState({aggRows: rows, loading: false})
+
+            let radialData = []
+            Object.entries(totalsByMember).toReversed().map(([memberName, memberData]) => {
+                let developerTimes = {id: memberName, data:[]}
+                activityNames.forEach((activity) => {
+                    let activityName = activity
+                    let durationNum = 0
+                    if (activityName !== "Total") {
+                        if (memberData.hasOwnProperty(activityName)) {
+                            durationNum = memberData[activityName]
+                        }
+                        developerTimes["data"].push({x: activityName, y: durationNum / 60 / 60})
+                    }
+                })
+                radialData.push(developerTimes)
+            })
+            this.setState({radData: radialData})
         })
     }
 
@@ -151,7 +170,52 @@ class TimeReportAggregate extends Component {
                     loading={this.state.loading}
                 />
             }
+            {this.state.radData &&
+                <Container sx={{height: '600px'}}>
+                <AggregateRadialBar data={this.state.radData} />
+                </Container>
+            }
         </Container>
     }
 }
 export default TimeReportAggregate
+
+function AggregateRadialBar(props) {
+    return(
+        <ResponsiveRadialBar
+            data={props.data}
+            valueFormat=">-.2f"
+            padding={0.4}
+            cornerRadius={2}
+            margin={{ top: 40, right: 120, bottom: 40, left: 40 }}
+            colors={{ scheme: 'category10'}}
+            radialAxisStart={{ tickSize: 5, tickPadding: 5, tickRotation: 0 }}
+            circularAxisOuter={{ tickSize: 5, tickPadding: 12, tickRotation: 0 }}
+            motionConfig={"wobbly"}
+            legends={[
+                {
+                    anchor: 'right',
+                    direction: 'column',
+                    justify: false,
+                    translateX: 80,
+                    translateY: 0,
+                    itemsSpacing: 6,
+                    itemDirection: 'left-to-right',
+                    itemWidth: 100,
+                    itemHeight: 18,
+                    itemTextColor: '#000',
+                    symbolSize: 18,
+                    symbolShape: 'square',
+                    effects: [
+                        {
+                            on: 'hover',
+                            style: {
+                                itemTextColor: '#000'
+                            }
+                        }
+                    ]
+                }
+            ]}
+        />
+    );
+}
