@@ -98,7 +98,42 @@ function EntryList(props)
 
 const quadChartData = [
     {
-        date: "2023-10-11 - 2023-10-17",
+        date: "2023-10-24 - 2023-10-31",
+        progressList: [
+            "Had discussion on roles and progress",
+            "Some rudimentary UI design"
+        ],
+        risksList: [
+            "Workload increasing at the same time as other courses increasing workload"
+        ],
+        plansList: [
+            "Presentations on both frontend and backend from team",
+            "C# Performance Testing",
+            "C -> Python Performance Testing"
+        ],
+        needsList: [
+            "UI feedback"
+        ]
+    },
+    {
+        date: "2023-10-17 - 2023-10-24",
+        progressList: [
+            "Had discussion on roles and progress",
+            "Completed team retrospective document"
+        ],
+        risksList: [
+            "Workload increasing at the same time as other courses increasing workload"
+        ],
+        plansList: [
+            "Hold retrospective",
+            "Initial UI design"
+        ],
+        needsList: [
+            "Tetrahedral interpolation equations"
+        ]
+    },
+    {
+        date: "2023-10-10 - 2023-10-17",
         progressList: [
             "Further LUT performance testing",
             "Updated project plan document",
