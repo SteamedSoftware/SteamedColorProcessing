@@ -98,6 +98,35 @@ function EntryList(props)
 
 const quadChartData = [
     {
+        date: "2023-10-31 - 2023-11-7",
+        progressList: [
+            "Interpolation research",
+            "Team members being sick"
+        ],
+        risksList: [
+            "Matrix calculations difficult in C",
+            "Front-end automation difficult",
+            "Improper LUT testing can hide errors"
+        ],
+        plansList: [
+            "Presentations on both frontend and backend from team",
+            "Conversion of existing code to C",
+            "Research into Matrix calculations",
+            [
+                "Performance might make this unnecessary though"
+            ],
+            "Research front-end automated testing frameworks",
+            [
+                "Jest",
+                "React testing library"
+            ]
+        ],
+        needsList: [
+            "Demo LUT (inverter) with example in/out images",
+            "Want: example of matrix interpolation calcs"
+        ]
+    },
+    {
         date: "2023-10-24 - 2023-10-31",
         progressList: [
             "Had discussion on roles and progress",
