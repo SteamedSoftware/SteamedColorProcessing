@@ -98,6 +98,32 @@ function EntryList(props)
 
 const quadChartData = [
     {
+        date: "2023-11-7 - 2023-11-14",
+        progressList: [
+            "Work on interpolation",
+            [
+                "Polish algebraic implementation in C",
+                "Began work on matrix implementation in C"
+            ],
+            "Prepared further UI concets for review",
+            "Completed Senior Project Excellenve and Creativity Award opt-ins",
+            "Researched UI testing frameworks"
+        ],
+        risksList: [
+            "Matrix calculations could be difficult or slow in C, as there is no built-in implementation",
+            "Front-end automated testing could be difficult",
+            "Improper LUT testing can hide errors"
+        ],
+        plansList: [
+            "Further development of UI concepts",
+            "Continued development of backend",
+            "Implement backend testing for interpolation"
+        ],
+        needsList: [
+            "Method stub for the LUT conversion formula"
+        ]
+    },
+    {
         date: "2023-10-31 - 2023-11-7",
         progressList: [
             "Interpolation research",
