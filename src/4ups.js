@@ -98,6 +98,28 @@ function EntryList(props)
 
 const quadChartData = [
     {
+        date: "2023-11-14 - 2023-11-21",
+        progressList: [
+            "Worked on short video",
+            "Successful full-stack test"
+        ],
+        risksList: [
+            "Work on artifacts (video) takes time from development",
+            "End of semester burnout/heavy workload from other classes"
+        ],
+        plansList: [
+            "Further development of UI concepts",
+            "Continued development of backend",
+            "Complete concept for short video and begin production",
+            "Remove frameworks from existing UI"
+        ],
+        needsList: [
+            "Information on ARRI image file format",
+            "Information on what LogC3 and LogC4 actually are",
+            "Details of expected color curve behavior and appearance"
+        ]
+    },
+    {
         date: "2023-11-7 - 2023-11-14",
         progressList: [
             "Work on interpolation",
