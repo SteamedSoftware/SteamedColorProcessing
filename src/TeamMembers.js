@@ -18,31 +18,36 @@ function TeamMembers() {
                     <ImageCard 
                         name="Ella Cronk"
                         image={cronk}
-                        description="Current Roles: Project Manager"/>
+                        role="Current Roles: Project Manager"
+                        area="Area: Frontend"/>
                 </Grid>
                 <Grid xs={12} md={4} display="flex" justifyContent="center" alignItems="center">
                     <ImageCard 
                         name="Seth Teichman"
                         image={teichman}
-                        description="Current Roles: Communications Lead"/>
+                        role="Current Roles: Communications Lead"
+                        area="Area: Frontend"/>
                 </Grid>
                 <Grid xs={12} md={4} display="flex" justifyContent="center" alignItems="center">
                     <ImageCard 
                         name="Tyler McGuire"
                         image={mcguire}
-                        description="Current Roles: Website Lead"/>
+                        role="Current Roles: Website Lead"
+                        area="Area: Backend"/>
                 </Grid>
                 <Grid xs={12} md={4} display="flex" justifyContent="center" alignItems="center">
                     <ImageCard 
                         name="Dante Falardeau"
                         image={falardeau}
-                        description="Current Roles: Systems Architect"/>
+                        role="Current Roles: Systems Architect"
+                        area="Area: Backend"/>
                 </Grid>
                 <Grid xs={12} md={4} display="flex" justifyContent="center" alignItems="center">
                     <ImageCard 
                         name="Eddie Gauvin"
                         image={gauvin}
-                        description="Current Roles: CIT Lead"/>
+                        role="Current Roles: CIT Lead"
+                        area="Area: Test"/>
                 </Grid>
             </Grid>
         </Container>
@@ -71,7 +76,10 @@ function ImageCard(props)
                     {props.name}
                 </Typography>
                 <Typography variant="body2">
-                    {props.description}
+                    {props.role}
+                </Typography>
+                <Typography variant="body2">
+                    {props.area}
                 </Typography>
             </CardContent>
         </Card>
