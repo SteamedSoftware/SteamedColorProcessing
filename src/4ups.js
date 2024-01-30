@@ -98,6 +98,29 @@ function EntryList(props)
 
 const quadChartData = [
     {
+        date: "2024-1-30 - 2024-2-6",
+        progressList: [
+            "Color Curves in UI",
+            "Iron out LUT bug"
+        ],
+        risksList: [
+            "Front-end/back-end compatability"
+        ],
+        plansList: [
+            "Connect Front-end w/ Back-end",
+            "Start LUT merging",
+            "Performance Improvements",
+            "Finish slider",
+            "Polish UI"
+        ],
+        needsList: [
+            "Information about sliders",
+            "Information about MVP (8 images shown at once, would be slow)",
+            "Math on merging LUTs",
+            "What is the white color curve? Luminance, saturation?"
+        ]
+    },
+    {
         date: "2024-1-23 - 2024-1-30",
         progressList: [
             "Vacation :)",
