@@ -98,6 +98,26 @@ function EntryList(props)
 
 const quadChartData = [
     {
+        date: "2024-2-6 - 2024-2-13",
+        progressList: [
+            "Fixed windows build bug",
+            "Slider backend and API"
+        ],
+        risksList: [
+            "Front-end/back-end compatability"
+        ],
+        plansList: [
+            "Implement slider fully",
+            "Final exporting",
+            "Merge together into one branch"
+        ],
+        needsList: [
+            "Name and logo information",
+            "Information on white color curve",
+            "LUT sizes, slider needs to have same size"
+        ]
+    },
+    {
         date: "2024-1-30 - 2024-2-6",
         progressList: [
             "Color Curves in UI",
