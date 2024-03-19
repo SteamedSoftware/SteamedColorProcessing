@@ -98,6 +98,28 @@ function EntryList(props)
 
 const quadChartData = [
     {
+        date: "2024-3-19 - 2024-3-26",
+        progressList: [
+            "Spring Break (Relaxed Progress)",
+            "Color curve unit testing finished"
+            
+        ],
+        risksList: [
+            "Deadline pressure"
+        ],
+        plansList: [
+            "Saturation slider debugging",
+            [
+                "Stretch goal at this point"
+            ],
+            "Fix bit depth limitations with base64 encoding",
+            "Full vertical integration"
+        ],
+        needsList: [
+            "None"
+        ]
+    },
+    {
         date: "2024-3-5 - 2024-3-12",
         progressList: [
             "Saturation testing",
