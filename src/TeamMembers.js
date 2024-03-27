@@ -47,7 +47,7 @@ function TeamMembers() {
                         name="Eddie Gauvin"
                         image={gauvin}
                         role="Current Roles: CIT Lead"
-                        area="Area: Test"/>
+                        area="Area: Test, API"/>
                 </Grid>
             </Grid>
         </Container>
