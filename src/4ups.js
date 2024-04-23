@@ -98,6 +98,25 @@ function EntryList(props)
 
 const quadChartData = [
     {
+        date: "2024-4-16 - 2024-4-23",
+        progressList: [
+            "UI is approaching completion",
+            "LUT exporting",
+            "Poster and Video Complete"
+        ],
+        risksList: [
+            "Artifacts take time from development"
+        ],
+        plansList: [
+            "Final artifacts - Presentation, Technical report",
+            "Final product release",
+            "Solve issues concerning TIFF file support"
+        ],
+        needsList: [
+            "None"
+        ]
+    },
+    {
         date: "2024-4-9 - 2024-4-16",
         progressList: [
             "UI is approaching completion",
@@ -105,7 +124,7 @@ const quadChartData = [
         ],
         risksList: [
             "Deadline pressure",
-            "Artifacts takes time form development"
+            "Artifacts take time from development"
         ],
         plansList: [
             "Final artifacts - Video / Poster / Technical report",
